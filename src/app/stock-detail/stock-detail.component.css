@@ -1,0 +1,16 @@
+wrapper{
+    display: inline-block;
+    column-gap: 10px;
+}
+td{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12px;
+
+}
+tr{
+    font-size: 14px;
+}
+
+dropDown{
+  padding-left: 40px;
+}

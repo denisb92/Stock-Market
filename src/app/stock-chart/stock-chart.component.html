@@ -1,0 +1,47 @@
+<div  style="display: inline-block">
+  <div class="col-md-6">
+    <div style="display: inline-block;">
+     <div *ngIf = "type == 'search'; then search; else dashinfo"></div>
+    <ng-template #search>
+      <canvas baseChart width= "700px" height="350px"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="white"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+
+
+
+    </ng-template>
+    <ng-template #dashinfo>
+      <canvas baseChart width= "350px" height="350px"
+      [datasets]="lineChartData"
+      [labels]="lineChartLabels"
+      [options]="lineChartOptions"
+      [colors]="lineChartColors"
+      [legend]="lineChartLegend"
+      [chartType]="lineChartType"
+      (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"></canvas>
+
+
+    </ng-template>
+ 
+                
+    </div>
+  </div>
+  <!-- <div class="col-md-6" style="margin-bottom: 10px"> -->
+    <!-- <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of lineChartLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table> -->
+    <!-- <button (click)="onLoadChart()">CLICK</button>  -->
+  <!-- </div> -->
+</div>

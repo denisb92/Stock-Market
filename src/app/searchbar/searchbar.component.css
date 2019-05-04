@@ -1,0 +1,18 @@
+table{
+    border-spacing: 20px;
+}
+th{
+    font-size: 12px;
+
+}
+.ghost-button {
+    display: inline-block;
+    width:  90px;
+    padding: 8px;
+    color: black;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
+  }

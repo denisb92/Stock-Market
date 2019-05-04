@@ -1,0 +1,74 @@
+<div class ="row">
+  <div class="col-xs-12">
+    <form (ngSubmit) = "onSearch(f)" #f = "ngForm">
+    <div class="row" style = "padding: 5px">
+      <div class="col-sm-5">
+        <label for="name">Stock Search </label>
+        <input type="text" id = "name"  name ="name"
+        ngModel required>
+        <button   class = "btn btn-primary" type="submit" >Search</button>
+        <label style="text-align: center; color: red" for = "msg">{{errormsg}}</label>
+      </div>
+    </div>
+  </form>
+ 
+  <div *ngIf = "datas; else requestQuery">
+
+    <table class = "table" style= "width: 100%">
+    <tr>
+      <th>Icon</th>
+      <th>Symbol</th>
+      <th>Company Name</th>
+      <th>Industry</th>
+      <th>Website</th>
+      <th>Description</th>
+      <th>CEO</th>
+      <th>Opening Price</th>
+      <th>Closing Price</th>
+      <th>Change</th>
+    </tr>
+    <tr>
+      <th><img src= '{{urlString}}' style ="max-height: 50px;"></th>
+      <th>{{datas.symbol}}</th>
+      <th>{{datas.companyName}}</th>
+      <th>{{datas.industry}}</th>
+      <th>{{datas.website}}</th>
+      <th>{{datas.description}}</th>
+      <th>{{datas.CEO}}</th>
+      <th style = "color: blue">{{datas.opening}}</th>
+      <th style = "color: blue" >{{datas.closing}}</th>
+     
+      <div *ngIf = "datas.change > 0; then greenBlock; else redBlock"> aaa </div>
+     <ng-template #greenBlock><th style = "color: green">{{datas.change}}({{datas.changePercent}}%)</ng-template>
+     <ng-template #redBlock><th style = "color: red">{{datas.change}}({{datas.changePercent}}%)</th></ng-template>
+     
+    </tr>
+   
+  
+</table>
+<hr>
+
+<div  >
+    <button id ="adder" [disabled] = "btnDisabled" style = "text-align: center; float: left; margin-right: 300px" class= "btn btn-primary" type = "button" name = "add" (click)= "onAdd()" >{{notification}} </button>
+    <div style="display: inline-block">
+  <button  class ="ghost-button" (click) = "onDay()">Day</button>
+  <button  class ="ghost-button"(click) = "onMonth()">Month</button>
+  <button  class ="ghost-button"(click) = "onYear()">Year</button>
+</div>
+</div>
+<div style= "height:10%; width: 70%; padding-left: 200px">
+    <h4>{{dateRequest}} {{datas.companyName}} </h4>
+<script src="node_modules/chart.js/src/chart.js"></script>
+<app-stock-chart [sym] = "searchRequest" [time] = "time" [type] ='typechart' [filter] = 'closing'></app-stock-chart>
+</div>
+<!-- <div style= "height:30%; width: 70%; float:right">
+    <h4>Day Data: {{datas.companyName}} </h4>
+<script src="node_modules/chart.js/src/chart.js"></script>
+<app-stock-chart [sym] = "searchRequest" [time] = "d"></app-stock-chart>
+</div> -->
+
+
+</div>
+<ng-template #requestQuery><h3>Please Enter In A valid Stock Ticker</h3></ng-template>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+.wrapper{
+  display: inline-block;
+  column-gap:40px
+}
+hr{
+  color: black
+}

@@ -1,0 +1,31 @@
+
+<div >
+<div>
+<h1 style = "text-align: center; font-family: fantasy">Raptor Stocks Login</h1>
+  <img style="padding-left: 450px" src = "http://www.myiconfinder.com/uploads/iconsets/256-256-53e157058ac55ba046aa84778fca5e7e-user.png">
+</div>
+<hr>
+
+<div class="row" >
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit) = "onSubmit(f)" #f = "ngForm">
+      <div class="form-group">
+    <label for ="email">Email</label>
+    <input type = "email" id = "email" name ="email" ngModel class="form-control" required #email = "ngModel">
+    <span class = "help-block"  *ngIf = "!email.valid && email.touched">Please Enter In a Valid Email</span>
+   
+      </div>
+      <div class="form-group">
+          <label for ="password">Password</label>
+          <input type = "password" id = "password" name ="password" ngModel class ="form-control" required #password = "ngModel">
+          <span class = "help-block"  *ngIf = "!password.valid && password.touched">Please Enter In a Valid Password</span>
+            </div>
+            <p>{{errors}}</p>
+            <button class ="btn btn-primary" type = "submit" [disabled] ="!f.valid || logging == true"> Sign In</button>
+            <button class = "btn btn-primary" type = "button"(click) = "onForgotPassword()">Forgot Password</button>
+    </form>
+  
+  </div>
+  
+</div>
+</div>

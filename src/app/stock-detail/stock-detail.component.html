@@ -1,0 +1,78 @@
+<div>
+    <img style = "width: 60px; height: 60px; float: right"  src = '{{stock.icon}}'>
+</div>
+<button class='btn btn-danger' type='button' (click) ="onRemove()">Remove From Dashboard</button>
+<table style="width:100%; height: 100%;">
+    <tr>
+      <th>Company:</th>
+      <td>{{stock.companyName}}</td>
+    </tr>
+    <tr class="spaceUnder">
+      <th>Ticker:</th>
+      <td>{{stock.symbol}}</td>
+    </tr>
+    <tr>
+      <th>CEO:</th>
+      <td>{{stock.CEO}}</td>
+    </tr>
+    <tr>
+        <th>Website:</th>
+        <td>{{stock.website}}</td>
+      </tr>
+      <tr>
+        <th>Industry:</th>
+        <td>{{stock.industry}}</td>
+      </tr>
+      <tr style="padding-left: 10px">
+        <th>Description:</th>
+        <td>{{stock.description}}</td>
+      </tr>
+  </table>
+  <hr>
+  <div style="display: inline-block">
+
+    
+      <option  [value]="newVal"></option>
+ 
+ 
+  <div class = "dropDown" style=" display:inline; padding-left: 400px;" >
+    <select (change) = "onChange2($event)" id="category">
+    
+      <option *ngFor="let item of categories2" [value]="item">{{item}}</option>
+    </select>
+  </div>
+  <div  class = "dropDown" style='display: inline;padding-left: 300px'>
+    <select (change) = "onChange3($event)" id="category">
+    
+      <option *ngFor="let item of categories2" [value]="item">{{item}}</option>
+    </select>
+  </div>
+</div>
+<br>
+<br>
+<div style="display: inline-block">
+  <h4 style="display: inline; padding-left: 150px; text-align: left">  Day Data </h4>
+  <h4 style="  display: inline; margin-left:  250px ;text-align: center;" > Month {{newVal2 | uppercase}} Data</h4>
+  <h4 style="  display: inline;margin-left:250px;"> Year {{newVal3 |uppercase}} Data </h4>
+</div>
+<div class="wrapper">
+  <div class="column">
+<div  style=" display: inline-block; height: 100%">
+  
+  <div style="float: left;" >
+<script src="node_modules/chart.js/src/chart.js"></script>
+<app-stock-chart [sym] = 'stock.symbol' [time] = 'd' [type] = 'typechart' [filter] = "newVal"></app-stock-chart>
+</div>
+<div   style="float: left;">
+<script src="node_modules/chart.js/src/chart.js"></script>
+<app-stock-chart [sym] = "stock.symbol" [time] = "m"  [type] = 'typechart'[filter] = "newVal2"></app-stock-chart>
+</div>
+
+<div   style="float: left;">
+<script src="node_modules/chart.js/src/chart.js"></script>
+<app-stock-chart [sym] = "stock.symbol" [time] = "y"  [type] = 'typechart' [filter] = "newVal3"></app-stock-chart>
+</div>
+
+</div>
+</div>
+</div>

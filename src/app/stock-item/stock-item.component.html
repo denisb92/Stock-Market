@@ -1,0 +1,26 @@
+<div style="display: inline-block">
+<a 
+style="cursor: pointer; border-color:lightskyblue; border-width: 2px"
+[routerLink] = "['/detail', index]"
+routerLinkActive ="active"
+ class ="list-group-item clearfix" >
+  <div class = "pull-left">
+      <h4 class ="list-group-item-heading"> {{stock.companyName}}</h4>
+      <div *ngIf = "stockService.getDate() > 9 && stockService.getDate() <16 && stockService.getDay() != 0  && stockService.getDay() != 6; then Open; else Closed">aaa</div>
+      <ng-template #Open>
+        <h5 class ="list-group-item-text" >Current Price: <p style = "color: blue">{{stock.current}} USD</p> </h5>
+      </ng-template>
+     <ng-template #Closed>
+        <h5 class ="list-group-item-text" >Opening Price: <p style = "color: blue">{{stock.opening}} USD</p> </h5>
+        <h5 class ="list-group-item-text" >Closing Price: <p style = "color: blue">{{stock.closing}} USD</p> </h5>
+     </ng-template>
+    
+      <div *ngIf = "stock.change > 0; then greenBlock; else redBlock"> aaa </div>
+     <ng-template #greenBlock>Change since open: <p style = "color: green">+{{stock.change}} ({{stock.changePercent}}%)</p></ng-template>
+     <ng-template #redBlock>Change since open: <p  style = "color: red">-{{stock.change}} ({{stock.changePercent}}%)</p> </ng-template>
+   
+      <img src= "{{stock.icon}}" alt= {{stock.companyName}} class="img-responsive" style ="max-height: 50px;">
+  </div>
+  
+</a>
+</div>

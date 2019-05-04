@@ -1,0 +1,26 @@
+body{
+  
+    -webkit-background-size:cover;
+  color: black;
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("http://cdn.shutterstock.com/shutterstock/videos/969085/thumb/1.jpg");
+    
+    background-size: cover;
+    min-height: 100%;
+    height: auto;
+    max-height: 100%;
+    overflow: hidden;
+    width:100%;
+   
+}
+/* div .bg{
+    background-image: url("https://jooinn.com/images1280_/worm39s-eye-view-photography-of-high-rise-building-4.jpg");
+  
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+} */
+
